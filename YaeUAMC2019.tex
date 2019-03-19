@@ -1,0 +1,61 @@
+% Author: Pakkapon Phongthawee
+
+% !TEX program = xelatex
+
+\documentclass[xcolor=dvipsnames, xetex,serif]{beamer}
+%\documentclass[handout,xetex,serif]{beamer} %ใช้บรรทัดนี้สำหรับปริ้นเอกสาร
+\usepackage{color,amsmath,graphics,graphicx}
+\usepackage{epsfig,amsfonts,graphics}
+\usepackage{mathrsfs,hyperref}
+\usepackage{subcaption,float,framed,algorithm2e,hyperref}
+%===============================================
+\usepackage{fontspec,xltxtra,xunicode}
+\defaultfontfeatures{Scale=1.23}
+\XeTeXlinebreaklocale “th_TH” % สำหรับตัดคำ
+\setmainfont[Scale=1.23]{THSarabunNew}
+% 1.23 เท่าคือจาก 12 pt บน LaTeX ให้เท่ากับ 16pt บน Word
+%=====================================================
+%\usepackage{pgfpages} %ใช้บรรทัดนี้สำหรับปริ้นเอกสาร
+%\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm,landscape]
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+%ใช้บรรทัดนี้สำหรับปริ้นเอกสาร
+
+%%%%%%%%%%%%%%% THEOREM Environments %%%%%%%%%% 					
+\newtheorem{conjecture}[theorem]{บทคาดการณ์}								
+\newtheorem{remark}[theorem]{หมายเหตุ}										
+\numberwithin{equation}{section}							
+\renewcommand\tablename{ตารางที่}
+\renewcommand\figurename{รูปที่}						
+\renewcommand{\bibname}{บรรณานุกรม}						
+\renewcommand{\indexname}{ดรรชนี}
+\setbeamertemplate{caption}[numbered]	
+\setbeamertemplate{theorems}[numbered]				
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mode<presentation>{
+	\usetheme{Madrid}
+    \usecolortheme[named=PineGreen]{structure}
+}
+\title[วิธีเชิงตัวเลขสำหรับต่อเติมภาพ]{\normalsize{ขั้นตอนวิธีเชิงตัวเลขชนิดใหม่สำหรับการต่อเติมภาพที่ใช้การแปรผันรวมกับการประยุกต์สำหรับซ่อมแซมภาพจิตรกรรมไทยโบราณและการลบบทบรรยายจากอนิเมะ\\A new numerical algorithm for TV-based image inpainting with its applications for restoring ancient Thai painting images and removing subtitles from animes}}
+\author[ภัคพล]{ภัคพล พงษ์ทวี}
+\institute[SU]{
+ 	ภาควิชาคณิตศาสตร์\\
+ 	มหาวิทยาลัยศิลปากร \\}
+\date[Project Proposal]{งานประชุมวิชาการสำหรับนักศึกษาระดับปริญญาตรี\\ สาขาวิชาคณิตศาสตร์ประยุกต์ ครั้งที่ 8\\27 เมษายน 2562}
+ 
+ \AtBeginSubsection[]{
+ 	\begin{frame}<beamer>
+ 		\frametitle{Outlines}
+ 		\tableofcontents [currentsection,currentsubsection]
+     \end{frame}
+}
+%\setbeamertemplate{item}[square]
+%============================================================================
+\begin{document}
+    \begin{frame}
+        \titlepage 
+    \end{frame}
+    \begin{frame}
+        \frametitle{การต่อเติมภาพ (Image Inpainting)} 
+    \end{frame}
+\end{document}

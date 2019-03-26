@@ -1,0 +1,23 @@
+\begin{frame}
+    \frametitle{การหาค่าเหมาะสมด้วยแคลคูลัสการแปรผัน}
+    \begin{align*}
+        \min_{u} \{ \mathcal{J}(u) = \lambda {\color{red} \frac{1}{2} \int_{\Omega} (u-z)^2 d\Omega} +  {\color{blue}\int_{\Omega}  |\nabla u|  d\Omega} \}
+    \end{align*}
+        $$ \Big \downarrow$$
+    \begin{align*}
+        \min_{u} \{ \mathcal{J}(u) = \lambda {\color{red} \mathcal{D}(u,z)} +  {\color{blue} \mathcal{R}(u) } \}
+    \end{align*}			
+\end{frame}
+\begin{frame}
+    \frametitle{การหาค่าเหมาะสมด้วยแคลคูลัสการแปรผัน ต่อ}
+    \begin{align*}
+        \min_{u} \{ \mathcal{J}(u) = \lambda {\color{red} \mathcal{D}(u,z)} +  {\color{blue} \mathcal{R}(u) } \}
+    \end{align*}
+    $$ \Big \downarrow$$
+    \begin{align*}
+        \frac{\delta}{\delta u} \mathcal{J}(u) = \lambda   \frac{\delta}{\delta u} {\color{red} \mathcal{D}(u,z)} +    \frac{\delta}{\delta u} {\color{blue} \mathcal{R}(u) }
+    \end{align*}
+\end{frame}
+\begin{frame}
+    \frametitle{(Data fitting term)}
+\end{frame}

@@ -80,22 +80,11 @@
         \end{figure}
     \end{frame}
     \begin{frame}
-        \frametitle{การซ่อมแซมภาพจิตรกรรมไทยโบราณ}
-         \begin{figure}[h]
-            \includegraphics[width=0.6\linewidth]{images/thaiart.jpg}
-            \caption{ภาพจิตรกรรมไทยที่วัดภูมินทร์ อำเภอเมือง จังหวัดน่าน\footnote{\tiny{ภาพถ่ายที่วัดภูมินทร์ อำเภอเมือง จังหวัดน่าน; ภาพจาก \url{http://topicstock.pantip.com/camera/topicstock/2009/02/O7514399/O7514399.html} สืบค้นเมื่อวันที่ 23 กันยายน 2561}}}
-            \label{image:thaiart}
-        \end{figure}
-        %note{ภาพเขียนที่มีเอกลักษณ์ความเป็นศิลปะไทยซึ่งโดดเด่นและแตกต่างจากภาพเขียนของชนชาติอื่น อย่างไรก็ตาม ภาพจิตรกรรมไทยจำนวนไม่น้อยที่เสื่อมสลายตามกาลเวลา แต่การซ่อมแซมในบางครั้งอาจทำให้รายละเอียดในตัวภาพเขียนได้เปลี่ยนไป ก่อให้เกิดความเสียหายที่ประเมินค่าไม่ได้ เนื่องจากเป็นการซ่อมแซมโดยการใช้ขั้นตอนวิธีเชิงตัวเลขบนภาพดิจิตัลซึ่งเป็นสำเนาของภาพเดิม ด้วยเหตุผลดังกล่าว ผู้วิจัยได้เล็งเห็นว่าการซ่อมแซมภาพจิตรกรรมไทยโบราณมีความจำเป็นเร่งด่วน เนื่องจากภาพที่ได้รับการซ่อมแซมด้วยการต่อเติมภาพสามารถนำไปใช้ประกอบการตัดสินใจเพื่อวางแผนก่อนการลงมือซ่อมแซมภาพเขียนจริงได้  นอกจากนี้ ขั้นตอนวิธีการต่อเติมภาพสามารถนำไปใช้สร้างแอปพลิเคชันบนโทรศัพท์เคลื่อนที่เพื่อในไปใช้เป็นข้อมูลในการเข้าชมภาพเขียนเดิมที่ยังไม่ได้รับการซ่อมแซมและภาพเขียนที่ได้รับการซ่อมแซมโดยวิธีการทางคณิตศาสตร์จากแอปพลิเคชันที่พัฒนาขึ้น}
-    \end{frame}
-    \begin{frame}
-        \frametitle{การลบบทบรรยายบนอนิเมะ}
-         \begin{figure}[h]
-            \includegraphics[width=0.6\linewidth]{images/animesub.jpg}
-            \caption{เฟรมของอนิเมะที่มีบทบรรยายแบบแข็ง\footnote{\tiny{ภาพจาก \url{https://clip-sub.com/wp-content/uploads/2018/07/Clip-sub-Grand-Blue-02-720p-0002.jpg} สืบค้นเมื่อวันที่ 23 กันยายน 2561}}}
-            \label{image:anime-sub}
-            %\note{อนิเมะคือวิดีโอภาพวาดการ์ตูนสไตล์ญี่ปุ่นซึ่งเป็นที่นิยมของเยาวชนไทย ในการรับชมอนิเมะ แม้ว่าเยาวชนไทยสามารถรับชมด้วยบทพากย์เสียงภาษาไทย แต่ก็สูญเสียอรรถรสของการรับชมจากบทบรรยายแบบแข็งที่เป็นภาษาต่างประเทศในบริเวณด้านล่างของจอภาพ}
-        \end{figure}
+        \frametitle{ปัญหาการต่อเติมภาพ}
+        \begin{itemize}
+            \item[(1)] การต่อเติมภาพเฉดเทา
+            \item[(2)] การต่อเติมภาพสี
+        \end{itemize}
     \end{frame}
     \begin{frame}
         \frametitle{ภาพเฉดเทา}
@@ -115,7 +104,7 @@
             \label{image:sample-domain}
         \end{figure}
         %note{ในการกล่าวถึงขั้นตอนวิธีการต่อเติมภาพ จะเริ่มต้นด้วยการกล่าวทบทวนเกี่ยวกับการต่อเติมภาพเฉดสีเทา โดยขอกำหนดตัวแปรต่างๆ ดังนี้}
-    \end{frame} 
+    \end{frame}    
     \begin{frame}
         \frametitle{ตัวแบบการต่อเติมภาพเฉดสีเทาที่ใช้การแปรผันรวม}
         \begin{align*}
@@ -126,7 +115,7 @@
         \lambda=\lambda(\mathbf{x}) = \left \{ \begin{array}{ll}  \lambda_0, & x \in \Omega \textbackslash D \\ 0, & x \in D  \end{array} \right . 
         \end{align*}
         \let\thefootnote\relax\footnotetext{\tiny{T.F. Chan and J. Shen , “Mathematical models of local non-texture inpaintings”, SIAM Journal on Applied Mathematics, vol. 62, no. 3, pp. 1019–1043, 2001.}}	
-    \end{frame} 
+    \end{frame}    
     \begin{frame}
         \frametitle{ตัวแบบการต่อเติมภาพเฉดสีเทาที่ใช้การแปรผันรวม (ต่อ)}
         \begin{align*}
@@ -136,8 +125,15 @@
         \begin{align*}
         \left \{ \begin{array}{ll}  - \nabla \cdot  \Big( \dfrac{\nabla u}{|\nabla u|} \Big) + \lambda (u-z) = 0,  & \hspace{1cm} \mathbf{x} \in (1,n)^2 \\ \dfrac{\partial u}{\partial \boldsymbol{n}} = 0, & \hspace{1cm} x \in \partial \Omega \end{array} \right .
         \end{align*}			
-        %\note{โดยแคลคูลัสของการแปรผัน (Calculus of variations) จะได้สมการออยเลอร์ลากรางจ์ที่เกี่ยวข้องกัน ได้ดังนี้}
     \end{frame} 
+    \begin{frame}
+        \frametitle{วิธีการเชิงตัวเลขสำหรับการกำจัดสัญญาณรบกวน}
+        \begin{itemize}
+            \item[(1)] การเดินเวลาแบบชัดแจ้ง
+            \item[(2)] การทำซ้ำแบบจุดตรึง
+            \item[(3)] วิธีการสปริทเบรกแมน
+        \end{itemize}
+    \end{frame}
     \begin{frame}
         \frametitle{การเดินเวลาแบบชัดแจ้ง (explicit time marching)}
         \begin{align*}
@@ -282,66 +278,56 @@
         \frametitle{ภาพสังเคราะห์}
         \begin{figure}[H]
             \centering
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/image_inpaint_synthetic/case01-original.png}
+                \includegraphics[width=0.9\linewidth]{images/image_inpaint_synthetic/case01-original.png}
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/image_inpaint_synthetic/case02-original.png}
+                \includegraphics[width=0.9\linewidth]{images/image_inpaint_synthetic/case02-original.png}
             \end{subfigure}
-            \vspace{1cm}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/image_inpaint_synthetic/case03-original.png}	
+                \includegraphics[width=0.9\linewidth]{images/image_inpaint_synthetic/case03-original.png}	
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/image_inpaint_synthetic/case04-original.png}
+                \includegraphics[width=0.9\linewidth]{images/image_inpaint_synthetic/case04-original.png}
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/image_inpaint_synthetic/case05-original.png}	
+                \includegraphics[width=0.9\linewidth]{images/image_inpaint_synthetic/case05-original.png}	
             \end{subfigure}
             \caption{ภาพต้นฉบับ}
         \end{figure}
-    \end{frame}
-    \begin{frame}
-        \frametitle{ภาพสังเคราะห์ที่จะซ่อมแซม}
         \begin{figure}[H]
             \centering
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/image_inpaint_synthetic/case01-toinpaint.png}
+                \includegraphics[width=0.9\linewidth]{images/image_inpaint_synthetic/case01-toinpaint.png}
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/image_inpaint_synthetic/case02-toinpaint.png}
+                \includegraphics[width=0.9\linewidth]{images/image_inpaint_synthetic/case02-toinpaint.png}
             \end{subfigure}
-            \vspace{1cm}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/image_inpaint_synthetic/case03-toinpaint.png}
+                \includegraphics[width=0.9\linewidth]{images/image_inpaint_synthetic/case03-toinpaint.png}
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/image_inpaint_synthetic/case04-toinpaint.png}
+                \includegraphics[width=0.9\linewidth]{images/image_inpaint_synthetic/case04-toinpaint.png}
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/image_inpaint_synthetic/case05-toinpaint.png}
+                \includegraphics[width=0.9\linewidth]{images/image_inpaint_synthetic/case05-toinpaint.png}
             \end{subfigure}
             \caption{ภาพที่จะทำการซ่อมแซม}
         \end{figure}
-    \end{frame}
-    \begin{frame}
-        \frametitle{เกณฑ์การทำซ้ำ}
-        {\Large
-            \begin{align*}
-                \text{รอบการทำซ้ำ} &\leq 10,000 \hspace{0.5cm}\text{รอบ}\\[1.5cm]
-                \frac{|| u_{new} - u_{old} ||}{|| u_{new} ||} &\geq 10^{-4}
-            \end{align*}
-        }
+        \begin{align*}
+            \text{รอบการทำซ้ำ} \leq 10,000 \text{รอบ} \hspace{1cm}
+            \frac{|| u_{new} - u_{old} ||}{|| u_{new} ||} \geq 10^{-4}
+        \end{align*}
     \end{frame}
     \begin{frame}
         \frametitle{ผลการต่อเติมภาพ}
@@ -436,6 +422,17 @@
         \end{table}	
     \end{frame}
     \begin{frame}
+        \frametitle{คำตอบเริ่มต้น (intial solution)}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{0.8\linewidth}
+                \centering
+                \includegraphics[width=1\linewidth]{images/image_inpaint_synthetic/image_inital_solution.png}
+            \end{subfigure}
+            \caption{สร้างคำตอบเริ่มต้นโดยใช้พีระมิดรูปภาพ}
+        \end{figure}
+    \end{frame}
+    \begin{frame}
         \frametitle{พีระมิดรูปภาพ}
         \begin{figure}[H]
             \centering
@@ -446,17 +443,6 @@
             \caption{วิธีการพีระมิดรูปภาพ}
         \end{figure}
         \let\thefootnote\relax\footnotetext{\tiny{	E.H. Andelson and C.H. Anderson and J.R. Bergen and P.J. Burt and J.M. Ogden. "Pyramid methods in image processing". 1984}}
-    \end{frame}
-    \begin{frame}
-        \frametitle{พีระมิดรูปภาพ (ต่อ)}
-        \begin{figure}[H]
-            \centering
-            \begin{subfigure}{0.8\linewidth}
-                \centering
-                \includegraphics[width=1\linewidth]{images/image_inpaint_synthetic/image_inital_solution.png}
-            \end{subfigure}
-            \caption{วิธีการพีระมิดรูปภาพ}
-        \end{figure}
     \end{frame}
     \begin{frame}
         \frametitle{ผลการซ่อมแซมเมื่อใช้พีระมิดรูปภาพ}
@@ -530,68 +516,49 @@
         \frametitle{การซ่อมแซมภาพจิตรกรรมไทยโบราณ}
         \begin{figure}[H]
             \centering
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/case01-original.png}
-                \caption{วัดแก้วไพฑูรย์}
-                \label{image:thaiart_case01_original}
+                \includegraphics[width=0.9\linewidth]{images/thaiart/case01-original.png}
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/case02-original.png}
-                \caption{วัดแก้วไพฑูรย์}
-                \label{image:thaiart_case02_original}
+                \includegraphics[width=0.9\linewidth]{images/thaiart/case02-original.png}
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/case03-original.png}
-                \caption{วัดพระยืนพุทธบาทยุคล}
-                \label{image:thaiart_case03_original}			
+                \includegraphics[width=0.9\linewidth]{images/thaiart/case03-original.png}
             \end{subfigure}		
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/case04-original.png}
-                \caption{วัดคงคาราม}
-                \label{image:thaiart_case04_original}			
+                \includegraphics[width=0.9\linewidth]{images/thaiart/case04-original.png}
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/case05-original.png}
-                \caption{วัดท่าถนน}
-                \label{image:thaiart_case05_original}			
-            \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
-                \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/inpaint-domain.png}
-                \caption{รอยความเสียหาย}
+                \includegraphics[width=0.9\linewidth]{images/thaiart/case05-original.png}
             \end{subfigure}
             \caption{ภาพต้นฉบับสำหรับใช้ในการทดสอบ}
         \end{figure}
-    \end{frame}
-    \begin{frame}
-        \frametitle{ภาพที่ทำให้เสียหาย}
         \begin{figure}[H]
             \centering
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/case01-toinpaint.png}
+                \includegraphics[width=0.9\linewidth]{images/thaiart/case01-toinpaint.png}
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/case02-toinpaint.png}
+                \includegraphics[width=0.9\linewidth]{images/thaiart/case02-toinpaint.png}
             \end{subfigure}
-            \vspace{1cm}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/case03-toinpaint.png}			
+                \includegraphics[width=0.9\linewidth]{images/thaiart/case03-toinpaint.png}			
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/case04-toinpaint.png}			
+                \includegraphics[width=0.9\linewidth]{images/thaiart/case04-toinpaint.png}			
             \end{subfigure}
-            \begin{subfigure}{0.3\linewidth}
+            \begin{subfigure}{0.15\linewidth}
                 \centering
-                \includegraphics[width=0.7\linewidth]{images/thaiart/case05-toinpaint.png}			
+                \includegraphics[width=0.9\linewidth]{images/thaiart/case05-toinpaint.png}			
             \end{subfigure}
             \caption{ภาพที่ทำให้เสียหาย}
         \end{figure}
@@ -726,6 +693,14 @@
     \begin{frame}
         \frametitle{การหาบทบรรยาย}
         \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{images/subtitle-remove/thisisanimesubtitle.png}
+            \caption{บทบรรยายอนิเมะมักมีขอบเป็นสีดำ}
+        \end{figure}
+    \end{frame}
+    \begin{frame}
+        \frametitle{การหาบทบรรยาย (ต่อ)}
+        \begin{figure}[H]
             \begin{subfigure}{0.4\linewidth}
                 \centering
                 \includegraphics[width=0.8\linewidth]{images/subtitle_detection/detection-original.png}
@@ -777,7 +752,15 @@
         \end{table}	
     \end{frame}
     \begin{frame}
-        \frametitle{การข้ามเฟรมและยืมเฟรม}
+        \frametitle{ลำดับภาพกับคำตอบเริ่มต้น}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\linewidth]{images/skipborrow/frame_sequence.png}
+            \caption{ลำดับภาพในวิดีโอบริเวณคำบรรยาย}
+        \end{figure}
+    \end{frame}
+    \begin{frame}
+        \frametitle{พิจารณาความคล้ายด้วย SSIM}
         \begin{figure}[H]
             \centering
             \begin{subfigure}{0.4\linewidth}
@@ -805,9 +788,35 @@
                 \caption{บริเวณคำนวณ SSIM ของเฟรมปัจจุบัน}
                 \label{image:ssim_location_curr_inv}
             \end{subfigure}
-            \caption{บริเวณที่คำนวณ SSIM สำหรับการยืมเฟรมและข้ามเฟรม}
+            \caption{บริเวณที่คำนวณ SSIM สำหรับการข้ามเฟรมและยืมเฟรม}
             \label{image:ssim_location}
         \end{figure}
+    \end{frame}
+    \begin{frame}
+        \frametitle{การข้ามเฟรม}  
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\linewidth]{images/skipborrow/flowchart-skip.png}
+            \caption{ขั้นตอนวิธีการข้ามเฟรม}
+        \end{figure}      
+    \end{frame}
+    \begin{frame}
+        \frametitle{การยืมเฟรม}      
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\linewidth]{images/skipborrow/flowchart-borrow.png}
+            \caption{ขั้นตอนวิธีการยืมเฟรม}
+        \end{figure}   
+    \end{frame}
+    \begin{frame}
+        \frametitle{การข้ามเฟรมและยืมเฟรม}  
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\linewidth]{images/skipborrow/flowchart-skipandborrow.png}
+            \caption{ขั้นตอนวิธีการข้ามและยืมเฟรม}
+        \end{figure}        
+    \end{frame}
+    \begin{frame}
     \end{frame}
     \begin{frame}
         \frametitle{ผลของวิธีข้ามเฟรมและยืมเฟรม}
@@ -818,9 +827,9 @@
                 วิธีการ  & เวลาประมวล  (วินาที) & PSNR (dB) & SSIM \\
                 \hline
                 สปริทเบรกแมนและพีระมิดรูปภาพ & 141.29 & 31.39  &  0.9510\\
-                ยืมเฟรม & 132.78 & 32.20 & 0.9655\\
                 ข้ามเฟรม & 89.29 & 29.07 & 0.9408 \\
-                ยืมเฟรมและข้ามเฟรม & 75.76 & 29.33 & 0.9454 \\
+                ยืมเฟรม & 132.78 & 32.20 & 0.9655\\
+                ข้ามเฟรมและยืมเฟรม & 75.76 & 29.33 & 0.9454 \\
                 \hline
             \end{tabular}
             \caption{การลบคำบรรยายเฉลี่ยด้วยวิธีต่างๆ}

@@ -38,10 +38,10 @@
 }
 \title[วิธีเชิงตัวเลขสำหรับต่อเติมภาพ]{\normalsize{ขั้นตอนวิธีเชิงตัวเลขชนิดใหม่สำหรับการต่อเติมภาพที่ใช้การแปรผันรวมกับการประยุกต์สำหรับซ่อมแซมภาพจิตรกรรมไทยโบราณและการลบบทบรรยายจากอนิเมะ\\A new numerical algorithm for TV-based image inpainting with its applications for restoring ancient Thai painting images and removing subtitles from animes}}
 \author[ภัคพล]{ภัคพล พงษ์ทวี}
-\institute[SU]{
+\institute[ม. ศิลปากร]{
  	ภาควิชาคณิตศาสตร์\\
  	มหาวิทยาลัยศิลปากร \\}
-\date[Project Proposal]{งานประชุมวิชาการสำหรับนักศึกษาระดับปริญญาตรี\\ สาขาวิชาคณิตศาสตร์ประยุกต์ ครั้งที่ 8\\27 เมษายน 2562}
+\date[UAMC 2019]{งานประชุมวิชาการสำหรับนักศึกษาระดับปริญญาตรี\\ สาขาวิชาคณิตศาสตร์ประยุกต์ ครั้งที่ 8\\27 เมษายน 2562}
  
  \AtBeginSubsection[]{
  	\begin{frame}<beamer>
@@ -76,15 +76,23 @@
                 \caption{ภาพที่ได้รับการซ่อมแซม}
             \end{subfigure}
             \caption{ตัวอย่างการซ่อมแซมภาพ}
-            \label{fig1}
         \end{figure}
     \end{frame}
     \begin{frame}
         \frametitle{ปัญหาการต่อเติมภาพ}
-        \begin{itemize}
-            \item[(1)] การต่อเติมภาพเฉดเทา
-            \item[(2)] การต่อเติมภาพสี
-        \end{itemize}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{0.4\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{images/grayscale_inpaint/toinpaint.png}
+                \caption*{{\large ภาพเฉดเทา}}
+            \end{subfigure}
+            \begin{subfigure}{0.4\linewidth}
+                \centering
+                \includegraphics[width=0.8\linewidth]{images/image_inpaint_synthetic/case02-toinpaint.png}
+                \caption*{{\large ภาพสี}}
+            \end{subfigure}
+        \end{figure}
     \end{frame}
     \begin{frame}
         \frametitle{ภาพเฉดเทา}
@@ -117,25 +125,26 @@
         \let\thefootnote\relax\footnotetext{\tiny{T.F. Chan and J. Shen , “Mathematical models of local non-texture inpaintings”, SIAM Journal on Applied Mathematics, vol. 62, no. 3, pp. 1019–1043, 2001.}}	
     \end{frame}    
     \begin{frame}
-        \frametitle{ตัวแบบการต่อเติมภาพเฉดสีเทาที่ใช้การแปรผันรวม (ต่อ)}
-        \begin{align*}
-        \min_{u} \{ \mathcal{J}(u) = \frac{1}{2} \int_{\Omega}\lambda (u-z)^2 d\Omega +  \int_{\Omega}  |\nabla u|  d\Omega \}
-        \end{align*}
-        $$ \Big \downarrow$$
-        \begin{align*}
-        \left \{ \begin{array}{ll}  - \nabla \cdot  \Big( \dfrac{\nabla u}{|\nabla u|} \Big) + \lambda (u-z) = 0,  & \hspace{1cm} \mathbf{x} \in (1,n)^2 \\ \dfrac{\partial u}{\partial \boldsymbol{n}} = 0, & \hspace{1cm} x \in \partial \Omega \end{array} \right .
-        \end{align*}			
-    \end{frame} 
-    \begin{frame}
-        \frametitle{วิธีการเชิงตัวเลขสำหรับการกำจัดสัญญาณรบกวน}
+        \frametitle{วิธีการเชิงตัวเลข}
         \begin{itemize}
-            \item[(1)] การเดินเวลาแบบชัดแจ้ง
-            \item[(2)] การทำซ้ำแบบจุดตรึง
-            \item[(3)] วิธีการสปริทเบรกแมน
+            \item[(1)] การเดินเวลาแบบชัดแจ้ง (Explicit time marching)
+            \item[(2)] การทำซ้ำแบบจุดตรึง (Fixed point iteration)
+            \item[(3)] วิธีการสปริทเบรกแมน  (Split Bregman)
         \end{itemize}
     \end{frame}
     \begin{frame}
-        \frametitle{การเดินเวลาแบบชัดแจ้ง (explicit time marching)}
+		\frametitle{การเดินเวลาแบบชัดแจ้ง (explicit time marching)}
+		\begin{align*}
+		\min_{u} \{ \mathcal{J}(u) = \frac{1}{2} \int_{\Omega}\lambda (u-z)^2 d\Omega +  \int_{\Omega}  |\nabla u|  d\Omega \}
+		\end{align*}
+		$$ \Big \downarrow$$
+		\begin{align*}
+		\left \{ \begin{array}{ll}  - \nabla \cdot  \Big( \dfrac{\nabla u}{|\nabla u|} \Big) + \lambda (u-z) = 0,  & \hspace{1cm} \mathbf{x} \in (1,n)^2 \\ \dfrac{\partial u}{\partial \boldsymbol{n}} = 0, & \hspace{1cm} x \in \partial \Omega \end{array} \right .
+        \end{align*}
+        \let\thefootnote\relax\footnotetext{\tiny{L. I. Rudin, S. Osher, E. Fatemi, “Nonlinear total variation based noise removal algorithms", Physica D: Nonlinear Phenomena, vol 60, issues 1–4, pp. 259-268, 1992.}}						
+    \end{frame} 
+    \begin{frame}
+        \frametitle{การเดินเวลาแบบชัดแจ้ง (ต่อ)}
         \begin{align*}
         u(\mathbf{x},t_{k+1})=u(\mathbf{x},t_{k})+\tau\left(\nabla \cdot\left(\dfrac{\nabla u (\mathbf{x},t_k)}{| \nabla u (\mathbf{x},t_k) | }\right) + \lambda(\mathbf{x})(u (\mathbf{x},t_k)-z(\mathbf{x})) \right)
         \end{align*}
@@ -146,8 +155,16 @@
         \begin{align*}
             u(\mathbf{x},t_0), u(\mathbf{x},t_1), u(\mathbf{x},t_2), u(\mathbf{x},t_3), ... ,  \textcolor{red}{u(\mathbf{x},t^{*})}
         \end{align*}
-        \let\thefootnote\relax\footnotetext{\tiny{L. I. Rudin, S. Osher, E. Fatemi, “Nonlinear total variation based noise removal algorithms", Physica D: Nonlinear Phenomena, vol 60, issues 1–4, pp. 259-268, 1992.}}			
-        %\note{ต่อไปจะกล่าวทบทวนวิธีการเชิงตัวเลขสำหรับแก้สมการเชิงอนุพันธ์ย่อย ซึ่งมีด้วยกันหลายวิธี  Rudin, Osher และ Fatemi ได้แนะนำวิธีการเชิงตัวเลขสำหรับการกำจัดสัญญาณรบกวนด้วยวิธีการเดินเวลาแบบชัดแจ้ง ซึ่งสามารถนำมาประยุกต์เพื่อใช้กับการต่อเติมภาพได้ เริ่มจากการแนะนําตัวแปรเวลาสังเคราะห์ จากนั้นหาคําตอบแบบสภาวะคงตัว เมื่อเวลาลู่เข้าสู่อนันต์}
+    \end{frame} 
+    \begin{frame}
+        \frametitle{ข้อจำกัดของการเดินเวลาแบบชัดแจ้ง}
+        \begin{align*}
+        u(\mathbf{x},t_{k+1})=u(\mathbf{x},t_{k})+ \textcolor{red}{\tau}\left(\nabla \cdot\left(\dfrac{\nabla u (\mathbf{x},t_k)}{| \nabla u (\mathbf{x},t_k) | }\right) + \lambda(\mathbf{x})(u (\mathbf{x},t_k)-z(\mathbf{x})) \right)
+        \end{align*}
+        \vspace{1cm}
+        \begin{align*}
+            \textcolor{red}{\tau < 1}
+        \end{align*}
     \end{frame} 
     \begin{frame}
         \frametitle{การทำซ้ำแบบจุดตรึง (fixed-point iteration)}
@@ -162,29 +179,35 @@
         %\note{นอกจากนี้ยังมีคณะวิจัยของ Vogel และ Oman ได้แนะนำวิธีการทำซ้ำแบบจุดตรึงสำหรับการกำจัดสัญญาณรบกวนไว้ ซึ่งสามารถนำมาประยุกต์กับวิธีการต่อเติมภาพ เริ่มจากการแนะนำดัชนีการทำซ้ำแบบจุดตรึง u=0,1,2,... และนิยามรูปแบบการทำซ้ำโดย }
     \end{frame} 
     \begin{frame}
-\frametitle{ปัญหาเชิงตัวเลข}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.2\linewidth]{images/grayscale_inpaint/result_splitbergman.png}
-    \caption{ตัวอย่างภาพที่เกิดปัญหาเชิงตัวเลข}
-    \label{image:rgb-space}
-    \end{figure}
-    \begin{align*}
-        \tfrac{1}{| \nabla u |}=\tfrac{1}{\sqrt{u_x^2+u_y^2}} \rightarrow \infty
+        \frametitle{ปัญหาเชิงตัวเลข}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.2\linewidth]{images/grayscale_inpaint/result_splitbergman.png}
+            \caption{ตัวอย่างภาพที่เกิดปัญหาเชิงตัวเลข}
+            \label{image:rgb-space}
+        \end{figure}
+        \begin{align*}
+            \tfrac{1}{| \nabla u |}=\tfrac{1}{\sqrt{u_x^2+u_y^2}} \rightarrow \infty
         \end{align*}
         \begin{align*}
-        |\nabla u| \approx| \nabla u |_\beta=\sqrt{u_x^2+u_y^2+\beta},\ 0< \beta \ll 1
+            |\nabla u| \approx| \nabla u |_\beta=\sqrt{u_x^2+u_y^2+\beta},\ 0< \beta \ll 1
         \end{align*}
-        % \note{แต่ในบริเวณที่ u มีความเข้มสีเป็นเอกพันธ์ุ จะทำให้ (ชี้บรรทัดบน) 1ส่วนขนาดของแกรด u ลู่ออกสู่อนันต์ เพื่อหลีกเลี่ยงปัญหาเชิงตัวเลขจะเกิดขึ้นใน เราจะใช้ (ชี้บรรทัดล่าง) การประมาณขนาดของแกรดโดยเพิ่ม beta เข้าไป โดยค่า beta นี้ มีค่าน้อยลงมากขึ้นเท่าไหร่ ความแม่นยำของตัวแบบยิ่งมีมากขึ้นเท่านั้น แต่ เรายังพบอีกว่าการแก้สมการยิ่งมีความยุ่งยากมากขึ้นสำหรับ beta น้อยๆ }
     \end{frame}
     \begin{frame}
-        \frametitle{วิธีการสปริทเบรกแมน (Split Bregman method)}
+        \frametitle{วิธีการสปริทเบรกแมน}
         \begin{align*}
-        \min_{u,\boldsymbol{w}} \{ \mathcal{J}(u,\boldsymbol{w}) = \dfrac{1}{2} \int_{\Omega} \lambda(u-z)^2 d\Omega +  \int_{\Omega}  |\nabla \boldsymbol{w}|  d\Omega + \frac{\theta}{2} \int_{\Omega} (\boldsymbol{w} - \nabla u + \boldsymbol{b}) d\Omega \}
+            \min_{u} \{ \mathcal{J}(u) = \frac{1}{2} \int_{\Omega}\lambda (u-z)^2 d\Omega +  \int_{\Omega}  |\nabla u|  d\Omega \}
         \end{align*}
-        \let\thefootnote\relax\footnotetext{\tiny{T. Goldstein and S. Osher,“The Split Bregman Method for L1-Regularized Problems", SIAM Journal on Imaging Sciences. vol. 2, issue 2, pp. 323-343, 2009.}}
-        %\note{เพื่อเอาชนะความยากเชิงตัวเลขนี้ คณะวิจัยโดยคุณ Goldstein และ Osher ได้แนะนำวิธีการสปริทเบรกแมนซึ่งสามารถกล่าวถึงพอสังเขป โดยการใช้พารามิเตอร์เสริม w ในตัวแบบเชิงการแปรผัน และเพิ่ม b ซึ่งเป็นตัวแปร bergman}
-    \end{frame} 
+        $$ \Big \downarrow$$
+		\begin{align*}
+		    \min_{u,\boldsymbol{w}} \{ \mathcal{J}(u,\boldsymbol{w}) = \dfrac{1}{2} \int_{\Omega} \lambda(u-z)^2 d\Omega +  \int_{\Omega}  |\boldsymbol{w}| d\Omega \} \hspace{1cm}\text{ เมื่อ } w = \nabla u
+        \end{align*}
+        $$ \Big \downarrow$$
+		\begin{align*}
+		    \min_{u,\boldsymbol{w}} \{ \mathcal{J}(u,\boldsymbol{w}) = \dfrac{1}{2} \int_{\Omega} \lambda(u-z)^2 d\Omega +  \int_{\Omega}  |\boldsymbol{w}|  d\Omega + \frac{\theta}{2} \int_{\Omega} (\boldsymbol{w} - \nabla u + \boldsymbol{b})^2 d\Omega \}
+        \end{align*}
+        \let\thefootnote\relax\footnotetext{\tiny{T. Goldstein and S. Osher,“The Split Bregman Method for L1-Regularized Problems", SIAM Journal on Imaging Sciences. vol. 2, issue 2, pp. 323-343, 2009.}}			
+	\end{frame}  	
     \begin{frame}
         \frametitle{วิธีการสปริทเบรกแมน (ต่อ)}
             \begin{align*}
@@ -247,6 +270,13 @@
         \begin{align*}
         \min_{\boldsymbol{u},\boldsymbol{w_1},\boldsymbol{w_2},\boldsymbol{w_3}} \{ \mathcal{J}(\boldsymbol{u},\boldsymbol{w_1},\boldsymbol{w_2},\boldsymbol{w_3}) &= \underset{l=1}{\overset{3}{\sum}} (  \dfrac{1}{2} \int_{\Omega} \lambda(u_l-z_l)^2 d\Omega +  \int_{\Omega}  |\nabla \boldsymbol{w_l}|  d\Omega \\ &+ \frac{\theta}{2} \int_{\Omega} (\boldsymbol{w_l} - \nabla u_l+ \boldsymbol{b_l}) d\Omega ) \}
         \end{align*}
+    \end{frame}
+    \begin{frame}
+        \frametitle{การวัดคุณภาพ}
+        \begin{itemize}
+            \item[(1)] Peak Signal Noise Ratio (PSNR)
+            \item[(2)] Structural Similarity (SSIM)
+        \end{itemize}
     \end{frame}
     \begin{frame}
         \frametitle{Peak Signal Noise Ratio (PSNR)}
@@ -415,7 +445,7 @@
                 \hline
                 การเดินเวลา & 120.68 & 16.72 & 0.9960 \\
                 การทำซ้ำจุดตรึง & 74.81 & 38.67 & 0.9999 \\
-                การสปริทเบรกแมน & 14.06 & 39.42 & 0.9999  \\
+                \textcolor{red}{วิธีสปริทเบรกแมน} & \textcolor{red}{14.06} & \textcolor{red}{39.42} & \textcolor{red}{0.9999}  \\
                 \hline
             \end{tabular}
         \caption{แสดงการซ่อมแซมเฉลี่ยของวิธีการเชิงตัวเลข \\ โดยที่ $\lambda = 250, \beta = 10^{-5}, \tau = 10^{-5}, \theta = 5 $}
@@ -502,7 +532,7 @@
                 \hline
                 ไม่ใช้พีระมิดรูปภาพ & 0.37 & 17.26 & 0.9963  \\
                 10/1/1/10 & 0.40 & 28.54 & 0.9993 \\
-                10/3/3/10 & 0.33 & 29.83  & 0.9994 \\
+                \textcolor{red}{10/3/3/10} & \textcolor{red}{0.33} & \textcolor{red}{29.83}  & \textcolor{red}{0.9994} \\
                 10/10/10/10 & 0.38 & 32.56 & 0.9995 \\
                 100/1/1/10 & 0.34 & 31.50 & 0.9999 \\
                 100/3/3/10 & 0.36 & 31.99 & 0.9999 \\
@@ -512,6 +542,28 @@
             \caption{{\small ผลการซ่อมแซมภาพเฉลี่ยเมื่อใช้การทำซ้ำในระดับความคมชัดละเอียดสุด 10 ครั้ง}}
         \end{table}	
     \end{frame}
+    \begin{frame}
+		\frametitle{ขั้นตอนวิธีสำหรับการซ่อมแซมภาพศิลปะไทย}
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{0.7\linewidth}
+				\centering
+				\includegraphics[width=1\linewidth]{images/method_thaiart/step_thaiart.png}
+			\end{subfigure}
+			\caption{การทำงานของวิธีที่คิดค้นขึ้น}
+        \end{figure}
+	\end{frame}
+	\begin{frame}
+		\frametitle{ขั้นตอนวิธีสำหรับการซ่อมแซมภาพศิลปะไทย (ต่อ)}
+		\begin{figure}[H]
+			\centering
+			\begin{subfigure}{0.5\linewidth}
+				\centering
+				\includegraphics[width=1\linewidth]{images/method_thaiart/flowchart_thaiart.png}
+			\end{subfigure}
+			\caption{ผังงานขั้นตอนวิธีที่คิดค้นขึ้น}
+		\end{figure}
+	\end{frame}
     \begin{frame}
         \frametitle{การซ่อมแซมภาพจิตรกรรมไทยโบราณ}
         \begin{figure}[H]
@@ -817,8 +869,6 @@
         \end{figure}        
     \end{frame}
     \begin{frame}
-    \end{frame}
-    \begin{frame}
         \frametitle{ผลของวิธีข้ามเฟรมและยืมเฟรม}
         \begin{table}[H]
             \centering
@@ -829,11 +879,19 @@
                 สปริทเบรกแมนและพีระมิดรูปภาพ & 141.29 & 31.39  &  0.9510\\
                 ข้ามเฟรม & 89.29 & 29.07 & 0.9408 \\
                 ยืมเฟรม & 132.78 & 32.20 & 0.9655\\
-                ข้ามเฟรมและยืมเฟรม & 75.76 & 29.33 & 0.9454 \\
+                \textcolor{red}{ข้ามเฟรมและยืมเฟรม} & \textcolor{red}{75.76} & \textcolor{red}{29.33} & \textcolor{red}{0.9454} \\
                 \hline
             \end{tabular}
             \caption{การลบคำบรรยายเฉลี่ยด้วยวิธีต่างๆ}
         \end{table}	
+    \end{frame}
+    \begin{frame}
+        \frametitle{ขั้นตอนวิธีสำหรับลบคำบรรยายอนิเมะ}  
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\linewidth]{images/skipborrow/flowchart-skipandborrow.png}
+            \caption{ขั้นตอนวิธีการข้ามและยืมเฟรม}
+        \end{figure}        
     \end{frame}
     \begin{frame}
         \frametitle{ผลการลบคำบรรยาย}
@@ -875,10 +933,25 @@
         \centering
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.8\linewidth]{images/colab_sample.png}
+            \includegraphics[width=0.7\linewidth]{images/colab_sample.png}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.1\linewidth]{images/colab_qr.png}
             \caption{ลองใช้งานได้ที่ https://bit.ly/demothai}
         \end{figure}
     \end{frame}
+    \begin{frame}
+		\frametitle{โปรแกรมลบคำบรรยาย}
+		\begin{figure}
+			\includegraphics[width=0.8\linewidth]{images/demo_anime/file.png}
+			\caption{ชุดไฟล์สำหรับลบคำบรรยาย (https://bit.ly/demo-anime-inpaint)}
+		\end{figure}
+		\begin{figure}
+			\includegraphics[width=0.8\linewidth]{images/demo_anime/notepad.png}
+			\caption{โค้ดภายใน SubtitleRemove.avs}
+		\end{figure}
+	\end{frame}
     \begin{frame}
         \centering
         \Huge{ขอขอบคุณ}

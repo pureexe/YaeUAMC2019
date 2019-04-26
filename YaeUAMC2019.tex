@@ -49,11 +49,25 @@
  		\tableofcontents [currentsection,currentsubsection]
      \end{frame}
 }
+
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
+
 %\setbeamertemplate{item}[square]
 %============================================================================
 \begin{document}
+    % \begin{frame} \titlepage \end{frame}
     \begin{frame}
-        \titlepage 
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=1\linewidth]{images/cover_uamc2019_large.png}
+        \end{figure}
     \end{frame}
     \begin{frame}
         \frametitle{การต่อเติมภาพ (Image Inpainting)} 
@@ -63,7 +77,6 @@
                 \centering
                 \includegraphics[width=0.8\linewidth]{images/grayscale_inpaint/toinpaint.png}
                 \caption{ภาพที่ต้องการซ่อมแซม}
-                %note{การต่อเติมภาพ เป็นวิธีการประมวลผลภาพชนิดหนึ่งมีเป้าหมายเพื่อซ่อมแซมภาพด้วยการต่อเติมข้อมูลของความเข้มของสีบนบริเวณที่กำหนด (ต่อไปจะเรียกบริเวณนี้ว่าโดเมนต่อเติม) โดยอาศัยข้อมูลของความเข้มของสีที่ปรากฏในภาพ จากภาพต้องการต่อเติมพื้นที่สีขาว ซึ่งเมื่อต่อเติมแล้วจะได้ภาพดังนี้}
             \end{subfigure}
             \begin{subfigure}{0.3\linewidth}
                 \centering
@@ -109,9 +122,7 @@
             \includegraphics[width=0.3\linewidth]{images/sample-domain.png}
             \]
             \caption{$D$ แทนโดเมนต่อเติม}
-            \label{image:sample-domain}
         \end{figure}
-        %note{ในการกล่าวถึงขั้นตอนวิธีการต่อเติมภาพ จะเริ่มต้นด้วยการกล่าวทบทวนเกี่ยวกับการต่อเติมภาพเฉดสีเทา โดยขอกำหนดตัวแปรต่างๆ ดังนี้}
     \end{frame}    
     \begin{frame}
         \frametitle{ตัวแบบการต่อเติมภาพเฉดสีเทาที่ใช้การแปรผันรวม}
@@ -176,7 +187,6 @@
         u^{[0]}, u^{[1]}, u^{[2]}, u^{[3]}, ..., \textcolor{red}{u^{*}}    
         \end{align*}
         \let\thefootnote\relax\footnotetext{\tiny{C.R. Vogel and M.E. Oman,“Iterative methods for total variation denoising", SIAM Journal on Scientific Computing. vol. 17, pp. 227-238, 1996.}}
-        %\note{นอกจากนี้ยังมีคณะวิจัยของ Vogel และ Oman ได้แนะนำวิธีการทำซ้ำแบบจุดตรึงสำหรับการกำจัดสัญญาณรบกวนไว้ ซึ่งสามารถนำมาประยุกต์กับวิธีการต่อเติมภาพ เริ่มจากการแนะนำดัชนีการทำซ้ำแบบจุดตรึง u=0,1,2,... และนิยามรูปแบบการทำซ้ำโดย }
     \end{frame} 
     \begin{frame}
         \frametitle{ปัญหาเชิงตัวเลข}
@@ -184,7 +194,6 @@
             \centering
             \includegraphics[width=0.2\linewidth]{images/grayscale_inpaint/result_splitbergman.png}
             \caption{ตัวอย่างภาพที่เกิดปัญหาเชิงตัวเลข}
-            \label{image:rgb-space}
         \end{figure}
         \begin{align*}
             \tfrac{1}{| \nabla u |}=\tfrac{1}{\sqrt{u_x^2+u_y^2}} \rightarrow \infty
@@ -223,7 +232,6 @@
         \begin{align*}
         \boldsymbol{b}^{\text{New}}=\boldsymbol{b}^{\text{old}}+\nabla u^{\text{New}}-\boldsymbol{w}^{\text{New}}
         \end{align*}
-        %\note{เราจะใช้วิธีการหาค่าต่ำที่สุดแบบสลับ โดยทำการตรึงค่า w จากนั้นเริ่มแก้ปัญหาย่อย แล้วนำ u ที่ได้มาตรึงค่า u เพื่อแก้ปัญหาย่อย w จากนั้นจึงทำการเปลี่ยนค่าตัวแปร b แล้วเริ่มทำซ้ำที่การหา u ใหม่อีกครั้ง จนกระทั่งค่านอร์มระหว่างรูป u ปัจจุบันและก่อนหน้าน้อยกว่าค่าที่กำหนด}
     \end{frame}  
     \begin{frame}
         \frametitle{ภาพสี}
@@ -231,7 +239,6 @@
             \centering
             \includegraphics[width=0.4\linewidth]{images/rgb-space.png}
             \caption{ภาพสีเกิดจากการผสมกันระหว่างสี แดง เขียว และน้ำเงิน\footnote{\tiny{ภาพจาก \url{https://commons.wikimedia.org/wiki/File:Additive_RGB_Circles-48bpp.png}  สืบค้นเมื่อวันที่ 25 กันยายน 2561}}}
-            \label{image:rgb-space}
         \end{figure}
     \end{frame}
     \begin{frame}
@@ -297,7 +304,7 @@
         \end{align*}
         \begin{itemize}
             \item[$\bullet$] $u$ แทนภาพต้นฉบับ
-            \item[$\bullet$] $\tilde{u}$  แทนภาพต้นฉบับ และภาพที่ได้จากการซ่อมแซมโดยวิธีเชิงตัวเลข
+            \item[$\bullet$] $\tilde{u}$  แทนภาพที่ได้จากการซ่อมแซมโดยวิธีเชิงตัวเลข
             \item[$\bullet$] $\mu_u$ คือค่าเฉลี่ยของ $u$
             \item[$\bullet$] $\mu_{\tilde{u}}$ คือค่าเฉลี่ยของ $\tilde{u}$
             \item[$\bullet$]  $\sigma_u$ คือความแปรปรวนของ $u$ 
@@ -492,7 +499,6 @@
                 \hline
             \end{tabular}
             \caption{ผลการซ่อมแซมภาพโดยวิธีการเชิงตัวเลขที่นำเสนอในรูปของค่าเฉลี่ย}
-            \label{result:table-multiresolution1-summary}
         \end{table}	
     \end{frame}
     \begin{frame}
@@ -707,7 +713,6 @@
                 \hline
             \end{tabular}
             \caption{แสดงผลการซ่อมแซมภาพศิลปะไทยในรูปค่าเฉลี่ย}
-            \label{result:table-thaiart-summary}
         \end{table}	
     \end{frame}
     \begin{frame}
@@ -819,29 +824,24 @@
                 \centering
                 \includegraphics[width=0.95\linewidth]{images/skipborrow/prevframe.png}
                 \caption{เฟรมก่อนหน้า}
-                \label{image:ssim_location_prev}
             \end{subfigure}
             \begin{subfigure}{0.4\linewidth}
                 \centering
                 \includegraphics[width=0.95\linewidth]{images/skipborrow/currentframe.png}
                 \caption{เฟรมปัจจุบัน}
-                \label{image:ssim_location_curr}
             \end{subfigure}
             \bigskip
             \begin{subfigure}{0.4\linewidth}
                 \centering
                 \includegraphics[width=0.95\linewidth]{images/skipborrow/prevframeinverse.png}
                 \caption{บริเวณคำนวณ SSIM ของเฟรมก่อนหน้า}
-                \label{image:ssim_location_prev_inv}
             \end{subfigure}
             \begin{subfigure}{0.4\linewidth}
                 \centering
                 \includegraphics[width=0.95\linewidth]{images/skipborrow/currentframeinverse.png}
                 \caption{บริเวณคำนวณ SSIM ของเฟรมปัจจุบัน}
-                \label{image:ssim_location_curr_inv}
             \end{subfigure}
             \caption{บริเวณที่คำนวณ SSIM สำหรับการข้ามเฟรมและยืมเฟรม}
-            \label{image:ssim_location}
         \end{figure}
     \end{frame}
     \begin{frame}
@@ -901,15 +901,12 @@
                 \centering
                 \includegraphics[width=0.80\linewidth]{images/subtitle-remove/beforesubtitleremove.png}
                 \caption{ก่อนลบคำบรรยาย}
-                \label{image:ssim_location_prev}
             \end{subfigure}
             \begin{subfigure}{0.4\linewidth}
                 \centering
                 \includegraphics[width=0.80\linewidth]{images/subtitle-remove/aftersubtitleremove.png}
                 \caption{หลังลบคำบรรยาย}
-                \label{image:ssim_location_curr}
             \end{subfigure}
-            %\caption{ก่อนลบคำบรรยายและหลังลบคำบรรยาย}
         \end{figure}
     \end{frame}
     \begin{frame}
@@ -956,4 +953,30 @@
         \centering
         \Huge{ขอขอบคุณ}
     \end{frame}
+    \backupbegin
+    \begin{frame}
+        \frametitle{ทำไมต้องลบบทบรรยาย}
+        \begin{figure}
+			\includegraphics[width=0.8\linewidth]{images/q_and_a/theleader.png}
+			\caption{เรื่อง Ling Feng Zhe ที่มีบทบรรยายภาษาจีนติดอยู่เนื่องจากผลิตในประเทศจีน}
+		\end{figure}
+    \end{frame}
+    \begin{frame}
+        \frametitle{หากไม่ลบบทบรรยาย}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{0.45\linewidth}
+                \centering
+                \includegraphics[width=0.90\linewidth]{images/q_and_a/paopunjin.jpg}
+                \caption{เปาปุ้นจิ้น (ช่อง 3)}
+            \end{subfigure}
+            \begin{subfigure}{0.45\linewidth}
+                \centering
+                \includegraphics[width=0.90\linewidth]{images/q_and_a/sample_of_subtitle_replace.png}
+                \caption{นายกสลับร่าง (ช่อง Thai PBS)}
+            \end{subfigure}
+            \caption{ตัวอย่างการจัดการกับบทบรรยายของสถานีโทรทัศน์}
+        \end{figure}
+    \end{frame}
+    \backupend
 \end{document}
